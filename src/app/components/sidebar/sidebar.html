@@ -1,0 +1,41 @@
+<mat-nav-list>
+  <ng-container *ngFor="let item of items">
+    <!-- Parent Item -->
+    <mat-list-item 
+      [class.active]="isChildActive(item.route)"
+      [class.completed]="item.completed"
+      [class.parent-item]="isParent(item)"
+      [class.expanded]="isExpanded(item)"
+      (click)="onStepClick(item.route, item)">
+      
+      <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+      <span matListItemTitle>{{item.label}}</span>
+      
+      <mat-icon matListItemIcon *ngIf="item.completed" class="check-icon">
+        check_circle
+      </mat-icon>
+      
+      <mat-icon matListItemIcon *ngIf="isParent(item)" class="expand-icon" (click)="onChevronClick($event, item)">
+        {{isExpanded(item) ? 'expand_less' : 'expand_more'}}
+      </mat-icon>
+    </mat-list-item>
+
+    <!-- Child Items -->
+    <div *ngIf="isParent(item) && isExpanded(item) && item.children" class="nested-items">
+      <mat-list-item 
+        *ngFor="let child of item.children"
+        [class.active]="isActive(child.route)"
+        [class.completed]="child.completed"
+        [class.child-item]="true"
+        (click)="onChildClick(child.route)">
+        
+        <mat-icon matListItemIcon>{{child.icon}}</mat-icon>
+        <span matListItemTitle>{{child.label}}</span>
+        
+        <mat-icon matListItemIcon *ngIf="child.completed" class="check-icon">
+          check_circle
+        </mat-icon>
+      </mat-list-item>
+    </div>
+  </ng-container>
+</mat-nav-list>

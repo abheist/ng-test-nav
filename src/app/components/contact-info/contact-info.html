@@ -1,0 +1,46 @@
+<div class="contact-info-container">
+  <!-- Email Form - Show only on parent route -->
+  <div *ngIf="showEmailForm" class="form-content">
+    <form [formGroup]="emailForm" (ngSubmit)="onSave()">
+      <h2>Contact Information - Email</h2>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Email Address</mat-label>
+        <input matInput formControlName="email" type="email" required>
+        <mat-error *ngIf="emailForm.get('email')?.hasError('required')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="emailForm.get('email')?.hasError('email')">
+          Please enter a valid email address
+        </mat-error>
+      </mat-form-field>
+    </form>
+
+    <div class="form-actions">
+      <button mat-raised-button 
+              color="primary" 
+              (click)="onPrevious()">
+        <mat-icon>arrow_back</mat-icon>
+        Previous
+      </button>
+      
+      <button mat-raised-button 
+              color="accent" 
+              (click)="onSave()">
+        <mat-icon>save</mat-icon>
+        Save
+      </button>
+
+      <button mat-raised-button 
+              color="primary" 
+              (click)="onNext()"
+              [disabled]="!emailForm.valid">
+        Next
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Child Routes - Address and Phone components -->
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,51 @@
+<div class="form-content">
+  <form [formGroup]="personalForm" (ngSubmit)="onSave()">
+    <h2>Personal Information</h2>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" required>
+      <mat-error *ngIf="personalForm.get('firstName')?.hasError('required')">
+        First name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" required>
+      <mat-error *ngIf="personalForm.get('lastName')?.hasError('required')">
+        Last name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email" required>
+      <mat-error *ngIf="personalForm.get('email')?.hasError('required')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="personalForm.get('email')?.hasError('email')">
+        Please enter a valid email
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <div class="form-actions">
+    <span></span> <!-- Empty span for layout -->
+    
+    <button mat-raised-button 
+            color="accent" 
+            (click)="onSave()">
+      <mat-icon>save</mat-icon>
+      Save
+    </button>
+
+    <button mat-raised-button 
+            color="primary" 
+            (click)="onNext()"
+            [disabled]="!personalForm.valid">
+      Next
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+  </div>
+</div>

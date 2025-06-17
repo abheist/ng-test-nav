@@ -1,0 +1,52 @@
+<div class="form-content">
+  <form [formGroup]="phoneForm" (ngSubmit)="onSave()">
+    <h3>Phone Details</h3>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Primary Phone</mat-label>
+      <input matInput formControlName="phone" required>
+      <mat-error *ngIf="phoneForm.get('phone')?.hasError('required')">
+        Phone is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Mobile Phone</mat-label>
+      <input matInput formControlName="mobile">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Work Phone</mat-label>
+      <input matInput formControlName="workPhone">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Emergency Contact</mat-label>
+      <input matInput formControlName="emergencyContact">
+    </mat-form-field>
+  </form>
+
+  <div class="form-actions">
+    <button mat-raised-button 
+            color="primary" 
+            (click)="onPrevious()">
+      <mat-icon>arrow_back</mat-icon>
+      Previous
+    </button>
+    
+    <button mat-raised-button 
+            color="accent" 
+            (click)="onSave()">
+      <mat-icon>save</mat-icon>
+      Save
+    </button>
+
+    <button mat-raised-button 
+            color="primary" 
+            (click)="onNext()"
+            [disabled]="!phoneForm.valid">
+      Next
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+  </div>
+</div>

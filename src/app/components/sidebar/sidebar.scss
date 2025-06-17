@@ -1,0 +1,97 @@
+mat-nav-list {
+  padding: 0;
+}
+
+mat-list-item {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  
+  &.active {
+    background-color: #e3f2fd;
+    border-right: 3px solid #2196f3;
+    
+    .mat-mdc-list-item-title {
+      font-weight: 500;
+      color: #2196f3;
+    }
+  }
+  
+  &.parent-item {
+    font-weight: 500;
+    
+    &.expanded {
+      background-color: #f5f5f5;
+    }
+    
+    .expand-icon {
+      color: #666;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 4px;
+      
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+        color: #333;
+      }
+    }
+  }
+  
+  &.child-item {
+    padding-left: 32px !important;
+    background-color: #fafafa;
+    border-left: 2px solid #e0e0e0;
+    margin-left: 16px;
+    margin-right: 8px;
+    border-radius: 4px;
+    
+    .mat-mdc-list-item-title {
+      font-size: 13px;
+      color: #555;
+    }
+    
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.06);
+    }
+    
+    &.active {
+      background-color: #e8f5e8;
+      border-left: 3px solid #4caf50;
+      
+      .mat-mdc-list-item-title {
+        font-weight: 500;
+        color: #4caf50;
+      }
+    }
+  }
+  
+  &.completed {
+    .check-icon {
+      color: #4caf50;
+    }
+  }
+}
+
+.nested-items {
+  padding: 4px 0;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 200px;
+  }
+}
+
+.mat-mdc-list-item-title {
+  font-size: 14px;
+}

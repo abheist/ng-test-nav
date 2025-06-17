@@ -1,0 +1,96 @@
+.app-container {
+  height: 100vh;
+  width: 100vw;
+}
+
+.app-sidenav {
+  width: 250px;
+  border-right: 1px solid #e0e0e0;
+}
+
+.app-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.app-toolbar {
+  background: #3f51b5;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.form-container {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  
+  .form-content {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 32px;
+      
+      h2 {
+        margin-bottom: 20px;
+        color: #333;
+        font-weight: 500;
+      }
+      
+      mat-form-field {
+        width: 100%;
+      }
+      
+      mat-checkbox {
+        margin-bottom: 16px;
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      border-top: 1px solid #e0e0e0;
+      
+      button {
+        min-width: 120px;
+        
+        mat-icon {
+          margin-right: 8px;
+          
+          &:last-child {
+            margin-right: 0;
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .app-sidenav {
+    width: 200px;
+  }
+  
+  .form-container {
+    padding: 16px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    gap: 12px;
+    
+    button {
+      width: 100%;
+    }
+  }
+}
