@@ -1,18 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { Router, ActivatedRoute, RouterOutlet, NavigationEnd } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { FormData, ContactInfo as ContactInfoModel } from '../../services/form-data';
 import { CanComponentDeactivate } from '../../guards/form-save-guard';
 
 @Component({
   selector: 'app-contact-info',
-  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, RouterOutlet],
+  standalone: false,
   templateUrl: './contact-info.html',
   styleUrl: './contact-info.scss'
 })

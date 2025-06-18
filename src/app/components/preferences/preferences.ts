@@ -1,18 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormData, Preferences as PreferencesModel } from '../../services/form-data';
 import { CanComponentDeactivate } from '../../guards/form-save-guard';
 
 @Component({
   selector: 'app-preferences',
-  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatSelectModule, MatCheckboxModule, MatButtonModule, MatIconModule],
+  standalone: false,
   templateUrl: './preferences.html',
   styleUrl: './preferences.scss'
 })

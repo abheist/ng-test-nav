@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { FormData } from '../../services/form-data';
@@ -18,7 +15,7 @@ export interface SidebarItem {
 
 @Component({
   selector: 'app-sidebar',
-  imports: [CommonModule, MatListModule, MatIconModule],
+  standalone: false,
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss'
 })
